@@ -1,0 +1,89 @@
+<div class="navbar navbar-inverse navbar-static-top" role="navigation"
+style="background-color:midnightblue">>
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" rel="home" href="/" title="">MoodMiner</a>
+    </div>
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <ul class="nav navbar-nav">
+
+        </ul>
+
+        <div class="col-sm-3 col-md-3 pull-right">
+          <div class="navbar-form navbar-left" >
+          <%= form_tag(searches_path, :method => "new") do %>
+            <%= text_field_tag(:q)%>
+
+          <% end %>
+          </div>
+
+        </div>
+
+    </div>
+</div>
+
+<body>
+  <div class="container">
+<div class="center jumbotron">
+
+
+    <div class="col-md-">
+      <h1 align="center"> <%=@name %></h1>
+    </div>
+</div>
+</div>
+
+<div class="jumbotron" color="light-blue">
+
+    <div class="row">
+        <div class="col-md-6">
+            <%= high_chart("my_id", @chart) %>
+
+        </div>
+
+        <div class="col-md-6">
+            <%= high_chart("my_id2", @chart2) %>
+
+        </div>
+    </div>
+    <br>
+
+     <div class="row">
+       <div class="col-md-6">
+         <div class="panel panel-default">
+           <div class="panel-heading">Industry Sentiment</div>
+         </div>
+         <ul class="list-group">
+           <li class="list-group-item"><%= "#{@topic1}: #{@score1}" %></li>
+           <li class="list-group-item"><%= "#{@topic2}: #{@score2}" %></li>
+           <li class="list-group-item"><%= "#{@topic3}: #{@score3}" %></li>
+           <li class="list-group-item"><%= "#{@topic4}: #{@score4}" %></li>
+         </ul>
+       </div>
+
+
+       <div class="col-md-6">
+         <div class="panel panel-default">
+           <div class="panel-heading">Relevant Tweets</div>
+         </div>
+         <ul class="list-group">
+           <li class="list-group-item"><%= @t1 %></li>
+           <li class="list-group-item"><%= @t2 %></li>
+           <li class="list-group-item"><%= @t3 %></li>
+         </ul>
+       </div>
+
+     </div>
+
+
+
+</div>
+</body>
